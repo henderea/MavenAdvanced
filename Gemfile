@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+gem 'sinatra'
+gem 'nexmo'
+gem 'data_mapper'
+gem 'dm-sqlite-adapter'
+gem 'thin'
+gem 'dm-types'
+gem 'maven_pom'

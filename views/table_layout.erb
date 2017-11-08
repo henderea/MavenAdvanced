@@ -1,0 +1,18 @@
+<table border="0" style="width:100%;height:100%;">
+  <% @table.each { |row|
+  %>
+      <tr>
+        <%
+           row.each { |cell|
+             x_str = cell.has_key?(:x) ? " width=\"#{cell[:x].abs >= 1 ? "#{cell[:x]}px" : "#{(cell[:x] * 100).round}%"}\"" : ''
+             y_str = cell.has_key?(:y) ? " height=\"#{cell[:y].abs >= 1 ? "#{cell[:y]}px" : "#{(cell[:y] * 100).round}%"}\"" : ''
+             c_str = cell.has_key?(:c) ? " colspan=\"#{cell[:c]}\"" : ''
+             r_str = cell.has_key?(:r) ? " rowspan=\"#{cell[:r]}\"" : ''
+             e_str = cell.has_key?(:e) ? (erb cell[:e]) : '&nbsp;'
+        %>
+            <td<%= x_str %><%= y_str %><%= c_str %><%= r_str %>><%= e_str %></td>
+        <% } %>
+      </tr>
+  <%
+     } %>
+</table>
